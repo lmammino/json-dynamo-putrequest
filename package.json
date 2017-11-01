@@ -2,9 +2,19 @@
   "name": "json-dynamo-putrequest",
   "version": "0.0.1",
   "description": "Converts an arbitrary JSON into a DynamoDB PutRequest JSON to simplify the import of the raw data",
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "json-dynamo-putrequest": "src/index.js",
+    "jdp": "src/index.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:lint": "eslint src test",
+    "test:unit": "ava test",
+    "test": "npm run test:lint && npm run test:unit",
+    "release:tag": "git tag $npm_package_version && git push --tags"
   },
   "repository": {
     "type": "git",
