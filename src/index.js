@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { createReadStream, createWriteStream } = require('fs')
+const { resolve } = require('path')
 const { parse } = require('JSONStream')
 const yargs = require('yargs')
 const through2 = require('through2')
@@ -26,6 +27,11 @@ const argv = yargs
   .option('output', {
     alias: 'o',
     describe: 'the output file, if specified the output will be written in the file'
+  })
+  .option('beautify', {
+    alias: 'b',
+    describe: 'the output file, if specified the output will be written in the file',
+    boolean: true
   })
   .version()
   .argv
@@ -59,7 +65,7 @@ const convertObject = (tableName) => through2.obj(function (obj, enc, callback) 
     throw new Error('Input data needs to be an array')
   }
   const data = convertForDynamo(obj, tableName)
-  this.push(JSON.stringify(data, null, 2))
+  this.push(JSON.stringify(data, null, argv.beautify ? 2 : undefined))
   callback()
 })
 
@@ -72,6 +78,10 @@ pump(
     if (err) {
       console.error(err)
       process.exit(1)
+    }
+
+    if (argv.output) {
+      console.log(`Output saved in ${resolve(argv.output)}`)
     }
   }
 )
