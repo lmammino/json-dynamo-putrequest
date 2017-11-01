@@ -1,0 +1,42 @@
+{
+  "name": "json-dynamo-putrequest",
+  "version": "0.0.1",
+  "description": "Converts an arbitrary JSON into a DynamoDB PutRequest JSON to simplify the import of the raw data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmammino/json-dynamo-putrequest.git"
+  },
+  "keywords": [
+    "JSON",
+    "DynamoDB",
+    "Import",
+    "Data",
+    "PutRequest",
+    "Put Request"
+  ],
+  "author": "Luciano Mammino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lmammino/json-dynamo-putrequest/issues"
+  },
+  "homepage": "https://github.com/lmammino/json-dynamo-putrequest#readme",
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "dependencies": {
+    "JSONStream": "^1.3.1",
+    "json-to-dynamo": "^0.1.0",
+    "pump": "^1.0.2",
+    "through2": "^2.0.3",
+    "yargs": "^10.0.3"
+  }
+}
