@@ -1,6 +1,6 @@
 {
   "name": "json-dynamo-putrequest",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Converts an arbitrary JSON into a DynamoDB PutRequest JSON to simplify the import of the raw data",
   "main": "src/index.js",
   "bin": {
